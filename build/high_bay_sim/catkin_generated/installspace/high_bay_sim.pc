@@ -1,0 +1,8 @@
+prefix=/home/turtlebot/gem_sim/install
+
+Name: high_bay_sim
+Description: Description of high_bay_sim
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/turtlebot/gem_sim/install/lib 
+Requires: 

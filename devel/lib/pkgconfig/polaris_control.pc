@@ -1,0 +1,8 @@
+prefix=/home/turtlebot/gem_sim/devel
+
+Name: polaris_control
+Description: Description of polaris_control
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/turtlebot/gem_sim/devel/lib 
+Requires: 

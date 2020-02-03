@@ -1,0 +1,2 @@
+example:high_bay_sim:polaris_control:polaris_description
+-DCATKIN_DEVEL_PREFIX=/home/turtlebot/gem_sim/devel -DCMAKE_INSTALL_PREFIX=/home/turtlebot/gem_sim/install -G Unix Makefiles

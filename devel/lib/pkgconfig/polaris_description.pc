@@ -1,0 +1,8 @@
+prefix=/home/turtlebot/gem_sim/devel
+
+Name: polaris_description
+Description: Description of polaris_description
+Version: 0.3.5
+Cflags: 
+Libs: -L/home/turtlebot/gem_sim/devel/lib 
+Requires: gazebo_ros

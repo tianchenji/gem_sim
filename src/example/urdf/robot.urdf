@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<robot name="simple_example"  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <link name="front_link">
+    <pose> 0 0 0 0 0 0 </pose>
+
+    <inertial>
+      <mass value="10" />
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.2"/>
+    </inertial>
+
+    <collision>
+      <geometry>
+        <box size=".4 .4 .1" />
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <box size=".4 .4 .1" />
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- <joint name="joint1" type="revolute">
+    <orign xyz=".4 0 0" rpy="0 0 0" />
+    <parent link="front_link" />
+    <child link="rear_link" />
+    <axis xyz="0 0 1" />
+      <limit lower="-.7" upper=".7" effort="0" velocity="100.0"/>
+  </joint>
+
+  <link name="rear_link">
+    <pose> 0 0 0 0 0 0 </pose>
+
+    <inertial>
+      <mass value="10" />
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.2"/>
+    </inertial>
+
+    <collision>
+      <geometry>
+        <box size=".4 .4 .1" />
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="0 0 0" xyz=".4 0 0" />
+      <geometry>
+        <box size=".4 .4 .1" />
+      </geometry>
+    </visual>
+  </link> -->
+
+
+
+  <!-- <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/simple_model</robotNamespace>
+      <legacyModeNS>true</legacyModeNS>
+
+    </plugin>
+  </gazebo> -->
+
+</robot>

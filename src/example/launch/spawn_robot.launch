@@ -1,0 +1,18 @@
+<launch>
+
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+
+
+
+  <param name="robot_description" textfile="$(find example)/urdf/robot.urdf" />
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model simple_model -param robot_description " />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="/simple_model" args="joint_state_controller --shutdown-timeout 3" />
+  <rosparam file="$(find example)/config/config.yaml" command="load" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    <remap from="/joint_states" to="/simple_model/joint_states" />
+  </node>
+
+
+</launch>

@@ -1,0 +1,8 @@
+prefix=/home/turtlebot/gem_sim/devel
+
+Name: example
+Description: Description of example
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/turtlebot/gem_sim/devel/lib 
+Requires: 
