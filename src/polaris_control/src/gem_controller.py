@@ -5,7 +5,7 @@ from std_msgs.msg import String, Bool, Float32, Float64, Char
 from sensor_msgs.msg import JointState
 from gazebo_msgs.msg import ModelStates
 from GetOffset import GetOffset
-from math import cos, atan, pi
+from math import cos, atan, atan2, pi
 
 # Steering pubs
 left_steer_pub = rospy.Publisher('/polaris/front_left_steering_position_controller/command', Float64, queue_size=1)
@@ -70,6 +70,8 @@ class PID_controller:
     def steer_control(self, data):
         global wheel_to_steering_ratio, car_state_position
 
+        # use difference to calculate the heading angle
+        '''
         self.prev_states[0] = self.car_states[0]
         self.prev_states[1] = self.car_states[1]
         self.car_states[0] = data.pose[car_state_position].position.x  # vehicle x position
@@ -84,6 +86,13 @@ class PID_controller:
             self.car_states[2] = atan(dy / dx) + pi
         else:
             self.car_states[2] = atan(dy / dx) - pi
+        '''
+
+        # use the tangent to calculate the heading angle
+        self.car_states[0] = data.pose[car_state_position].position.x  # vehicle x position
+        self.car_states[1] = data.pose[car_state_position].position.y  # vehicle y position
+
+        self.car_states[2] = atan2(self.car_states[1], self.car_states[0]) - pi/2
 
         # get offset
         if self.init_flag == 0:
@@ -91,6 +100,8 @@ class PID_controller:
             self.init_flag = 1
         else:
             offset = GetOffset(self.car_states)
+        #print(self.car_states)
+        #print("The heading angle is: %f" % self.car_states[2])
         print("The offset is: %f" % offset)
         
         current_time =  time.time()
